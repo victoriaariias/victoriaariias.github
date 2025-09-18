@@ -1,1 +1,97 @@
-# victoriaariias.github
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación Especial</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #c9eaff, #e0f7ff);
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 45px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 460px;
+      position: relative;
+      z-index: 10;
+    }
+    h1 {
+      color: #0077b6;
+      font-size: 2rem;
+    }
+    p {
+      margin: 15px 0;
+      font-size: 18px;
+      color: #333;
+    }
+    input[type="time"] {
+      padding: 10px;
+      border: 2px solid #48cae4;
+      border-radius: 10px;
+      font-size: 16px;
+      margin: 15px 0;
+    }
+    button {
+      font-size: 18px;
+      padding: 14px 28px;
+      margin: 12px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #48cae4; /* azul bebé */
+      color: white; /* letra blanca */
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1> Hi, bubu!</h1>
+    <p> Me das el honor de ir a cenar contigo hoy?</p>
+    <p> 📍 Rest. Brisas del Lago</p>
+    <p> 🕒 Selecciona la hora 👉🏻👈🏻</p>
+    <input type="time" id="hora" required>
+    <div>
+      <button class="yes" onclick="enviarWhatsApp()">Shiii!!</button>
+      <button class="no" onclick="shrinkNo()">ÑO</button>
+    </div>
+  </div>
+
+  <script>
+    function shrinkNo() {
+      let noBtn = document.querySelector(".no");
+      let yesBtn = document.querySelector(".yes");
+      let currentScale = parseFloat(noBtn.style.transform.replace(/scale\(|\)/g, "")) || 1;
+      noBtn.style.transform = `scale(${currentScale - 0.2})`;
+      yesBtn.style.transform = "scale(1.2)";
+    }
+
+    function enviarWhatsApp() {
+      let hora = document.getElementById("hora").value;
+      if (!hora) {
+        alert("Por favor selecciona una hora 💕");
+        return;
+      }
+      let mensaje = `Claro que sí mi dudu, te espero a las ${hora} en Brisas del Lago 💙`;
+      let telefono = "50662743761";
+      let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
